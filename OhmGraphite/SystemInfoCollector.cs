@@ -1,83 +1,178 @@
 using System;
 using System.Management;
+using System.Net.NetworkInformation;
+using Microsoft.Win32;
+using NLog;
 
 namespace OhmGraphite
 {
+    /// <summary>
+    /// Collects system information related to security and network metrics.
+    /// </summary>
     public class SystemInfoCollector
     {
-        public void CollectSystemInfo()
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+
+        /// <summary>
+        /// Gets information about the motherboard.
+        /// </summary>
+        /// <returns>Motherboard information string.</returns>
+        public string GetMotherboardInfo()
         {
-            Console.WriteLine("Collecting system information...");
-
-            // Collect motherboard information
-            var motherboardInfo = GetMotherboardInfo();
-            Console.WriteLine($"Motherboard Info: {motherboardInfo}");
-
-            // Check Secure Boot status
-            var secureBootStatus = GetSecureBootStatus();
-            Console.WriteLine($"Secure Boot Enabled: {secureBootStatus}");
-
-            // Check TPM status
-            var tpmStatus = GetTPMStatus();
-            Console.WriteLine($"TPM Available: {tpmStatus}");
-
-            // Check Memory Integrity
-            var memoryIntegrity = GetMemoryIntegrityStatus();
-            Console.WriteLine($"Memory Integrity Enabled: {memoryIntegrity}");
-
-            // Check Virtualization Based Security (VBS)
-            var vbsStatus = GetVBSStatus();
-            Console.WriteLine($"VBS Enabled: {vbsStatus}");
-
-            // Check Hypervisor status
-            var hypervisorStatus = GetHypervisorStatus();
-            Console.WriteLine($"Hypervisor Running: {hypervisorStatus}");
-
-            // Collect network connection details
-            var networkDetails = GetNetworkConnectionDetails();
-            Console.WriteLine($"Network Connection Details: {networkDetails}");
+            try
+            {
+                // Implementation to retrieve motherboard information
+                // ...
+                return "Motherboard Info"; // Placeholder
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Failed to get motherboard information.");
+                return null;
+            }
         }
 
-        private string GetMotherboardInfo()
+        /// <summary>
+        /// Gets the secure boot status.
+        /// </summary>
+        /// <returns>True if secure boot is enabled, otherwise false.</returns>
+        public bool GetSecureBootStatus()
         {
-            // Logic to retrieve motherboard info
-            return "Sample Motherboard Info";
+            try
+            {
+                // Implementation to check secure boot status
+                // ...
+                return true; // Placeholder
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Failed to get secure boot status.");
+                return false;
+            }
         }
 
-        private bool GetSecureBootStatus()
+        /// <summary>
+        /// Gets the TPM status.
+        /// </summary>
+        /// <returns>True if TPM is available, otherwise false.</returns>
+        public bool GetTPMStatus()
         {
-            // Logic to check Secure Boot status
-            return true;
+            try
+            {
+                // Implementation to check TPM status
+                // ...
+                return true; // Placeholder
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Failed to get TPM status.");
+                return false;
+            }
         }
 
-        private bool GetTPMStatus()
+        /// <summary>
+        /// Gets the memory integrity status.
+        /// </summary>
+        /// <returns>True if memory integrity is enabled, otherwise false.</returns>
+        public bool GetMemoryIntegrityStatus()
         {
-            // Logic to check TPM status
-            return true;
+            try
+            {
+                // Implementation to check memory integrity
+                // ...
+                return true; // Placeholder
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Failed to get memory integrity status.");
+                return false;
+            }
         }
 
-        private bool GetMemoryIntegrityStatus()
+        /// <summary>
+        /// Gets the virtualization-based security status.
+        /// </summary>
+        /// <returns>True if virtualization-based security is enabled, otherwise false.</returns>
+        public bool GetVirtualizationBasedSecurityStatus()
         {
-            // Logic to check Memory Integrity status
-            return true;
+            try
+            {
+                // Implementation to check virtualization-based security
+                // ...
+                return true; // Placeholder
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Failed to get virtualization-based security status.");
+                return false;
+            }
         }
 
-        private bool GetVBSStatus()
+        /// <summary>
+        /// Checks if the hypervisor is running.
+        /// </summary>
+        /// <returns>True if hypervisor is running, otherwise false.</returns>
+        public bool IsHypervisorRunning()
         {
-            // Logic to check VBS status
-            return true;
+            try
+            {
+                // Implementation to check if hypervisor is running
+                // ...
+                return true; // Placeholder
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Failed to check if hypervisor is running.");
+                return false;
+            }
         }
 
-        private bool GetHypervisorStatus()
+        /// <summary>
+        /// Gets core isolation information.
+        /// </summary>
+        /// <returns>Core isolation information.</returns>
+        public CoreIsolationInfo GetCoreIsolationInfo()
         {
-            // Logic to check Hypervisor status
-            return true;
+            try
+            {
+                // Implementation to retrieve core isolation info
+                // ...
+                return new CoreIsolationInfo(); // Placeholder
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Failed to get core isolation information.");
+                return null;
+            }
         }
 
-        private string GetNetworkConnectionDetails()
+        /// <summary>
+        /// Gets the active network connection information.
+        /// </summary>
+        /// <returns>Active network connection information.</returns>
+        public NetworkConnectionInfo GetActiveNetworkConnection()
         {
-            // Logic to retrieve network connection details
-            return "Sample Network Connection Info";
+            try
+            {
+                // Implementation to retrieve active network connections
+                // ...
+                return new NetworkConnectionInfo(); // Placeholder
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Failed to get active network connection information.");
+                return null;
+            }
         }
+    }
+
+    public class CoreIsolationInfo
+    {
+        // Properties and methods for core isolation information
+    }
+
+    public class NetworkConnectionInfo
+    {
+        // Properties and methods for network connection information
     }
 }
